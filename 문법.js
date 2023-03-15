@@ -25,3 +25,11 @@ sub = function(n1, n2) {
 }
 result = sub(3, 2);
 console.log(result); // 1
+
+// 화살표 함수로 변형
+sub = (n1, n2) => {
+  return n1 - n2;
+}
+result = sub(3, 2);
+console.log(result); //1
+
