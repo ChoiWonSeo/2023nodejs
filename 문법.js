@@ -3,3 +3,6 @@
   null, NaN, 0, 빈 문자열, undefined, false
 */
 
+const a = 30;
+console.log(a);
+//a = 10;
