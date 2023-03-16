@@ -10,4 +10,8 @@ function cb() {
   console.log("콜백함수 실행");
 }
 
-somefunc(cb);
+// callback은 순서대로 실행되어야할 때 사용한다.
+// 순서가 지켜지는
+somefunc(function() {
+  console.log("콜백함수 실행");
+});
