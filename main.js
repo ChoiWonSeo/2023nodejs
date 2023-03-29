@@ -7,11 +7,17 @@ const app = http.createServer(function(req, res) {
   if(url === '/') {
     url = '/index.html';
   }
-  if(url === 'favicon.ico') {
+
+  // 시험 X
+  if(url === '/favicon.ico') {
     return res.writeHead(404);
   }
+
   res.writeHead(200);
-  res.end('Hello');
+  // __dirname : 경로
+  const htmlCode = fs.readFileSync(__dirname + url);
+  console.log(htmlCode);
+  res.end(htmlCode);
 });
 
 app.listen(3333);
