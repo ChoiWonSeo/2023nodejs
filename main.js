@@ -1,14 +1,17 @@
 const http = require('http');
+const fs = require('fs');
 
-const hostname = '127.0.0.1';
-const port = 3000;
+const app = http.createServer(function(req, res) {
+  let url = req.url;
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World');
+  if(url === '/') {
+    url = '/index.html';
+  }
+  if(url === 'favicon.ico') {
+    return res.writeHead(404);
+  }
+  res.writeHead(200);
+  res.end('Hello');
 });
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
+app.listen(3333);
