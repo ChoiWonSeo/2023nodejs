@@ -1,7 +1,7 @@
 Data Types
 
-기본자료형	(중요)
-- boolean	- null
+기본자료형	(중요) < false
+- boolean		- null
 - null		- NaN
 - undefined	- 0
 - number		- 빈 문자열(' ', " ", ` `)
