@@ -9,12 +9,17 @@ function getAllFiles(dirPath, arrOfFiles) {
   files.forEach(function(file) {
     const dPath = dirPath + "\\" + file; 
 
+    // 폴더(디렉토리)라면 해당 폴더에 있는 모든 파일목록들을 체크한다
     if (fs.statSync(dPath).isDirectory()) {
-      console.log(dPath + "는 디렉토리(폴더)입니다.");
+      getAllFiles(dPath, arrOfFiles);
     } else {
-      console.log(dPath + "는 파일입니다.");
+      // 파일이라면 파일목록에 추가
+      arrOfFiles.push(dPath);
     }
   });
+
+  return arrOfFiles;
 }
 
 const files = getAllFiles(__dirname + "\\base", []);
+console.log(files.join('\n'));
